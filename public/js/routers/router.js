@@ -68,6 +68,7 @@ TRADE.Router = Backbone.Router.extend({
             if (wait === 2) {
                 var ChapterCollection1 = new TRADE.ChapterCollection ();
                 ChapterCollection1.classid = classid;
+                console.dir(nav);
                 ChapterCollection1.reset(nav.chapters);
                 ChapterCollection1.user = user;
                 ChapterCollection1.navname = nav.name;

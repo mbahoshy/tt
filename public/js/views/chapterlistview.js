@@ -8,7 +8,6 @@ TRADE.ChapterListView = Backbone.View.extend({
         },
         chapterClick: function (e) {
                 var nav = $(e.currentTarget).data('nav');
-                console.log(nav);
                 this.$el.html('');
                 this.render(nav);
 
@@ -77,7 +76,6 @@ TRADE.ChapterNavView = Backbone.View.extend({
                         this.$el.append(this.template({counter: i}));
                 }
                 
-                console.log(numchapters);
                 
                 return (this.$el);
         }
@@ -103,7 +101,6 @@ TRADE.TestView = Backbone.View.extend({
 
         },
         render : function (user, chapterid, classid) {
-                console.dir(this);
                 this.chapterid = chapterid;
                 this.classid = classid;
                 this.user = user;
@@ -117,7 +114,6 @@ TRADE.TestView = Backbone.View.extend({
                 
         },
         renderCard : function (model) {
-                console.dir(model);
                 this.$el.append( this.template({model: model, chapterid: this.chapterid, classid: this.classid}));
                 var completed = _.findWhere(this.user.testProgress, {testid: model.testid});
 
@@ -160,8 +156,6 @@ TRADE.LessonView = Backbone.View.extend({
         renderCard : function (model) {
                 this.$el.append( this.template({model: model, chapterid: this.chapterid, classid: this.classid}));
                 var completed = _.findWhere(this.user.lessonProgress, {lessonid: model.lessonid});
-                console.dir(model);
-                console.dir(completed);
                 if (completed) {
                         $(this.el).find('.check-box').last().addClass('check-green');
                 }
